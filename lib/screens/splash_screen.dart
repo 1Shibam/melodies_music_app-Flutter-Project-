@@ -47,16 +47,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [AppColors.gradientStart, AppColors.gradientEnd],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter)
-          ),
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [AppColors.gradientStart, AppColors.gradientEnd],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter)
+        ),
+        child: Center(
           child: Image.asset(
               'assets/images/ic_launcher.png'),
-        ), // Your splash screen content
+        ),
       ),
     );
   }
