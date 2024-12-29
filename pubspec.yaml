@@ -39,6 +39,7 @@ dependencies:
   path_provider: ^2.1.5
   audioplayers: ^6.1.0
   flutter_local_notifications: ^18.0.1
+  shared_preferences: ^2.3.4
 
 dev_dependencies:
   flutter_test:
@@ -63,8 +64,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - lib/assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -78,10 +79,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Arista
+      fonts:
+        - asset: lib/assets/fonts/Arista-Pro-Light-trial.ttf
+    - family: Arista-Bold
+      fonts:
+        - asset: lib/assets/fonts/Arista-Pro-Bold-trial.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
