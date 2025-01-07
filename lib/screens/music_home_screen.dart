@@ -23,8 +23,8 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                 colors: [AppColors.gradientStart, AppColors.gradientEnd],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter)),
-        child: const Padding(
-          padding: EdgeInsets.only(top: 24.0),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 24.0),
           child: DefaultTabController(
             length: 3, // Number of tabs
             child: Scaffold(
@@ -32,38 +32,77 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(''),
-                  
-                  SizedBox(
-                    height: 8,
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          'assets/images/ic_launcher.png',
+                          height: 48,
+                          width: 48,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            IconButton(
+                                highlightColor:
+                                    AppColors.accent.withOpacity(0.4),
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.multitrack_audio,
+                                  color: AppColors.primary,
+                                  size: 36,
+                                )),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            IconButton(
+                                highlightColor:
+                                    AppColors.accent.withOpacity(0.4),
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.settings,
+                                  color: AppColors.primary,
+                                  size: 36,
+                                )),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                  TabBar(
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const TabBar(
                     dividerColor: AppColors.textSecondary,
-                    labelColor: AppColors.accent,
+                    labelColor: AppColors.primary,
                     unselectedLabelColor: AppColors.textSecondary,
                     indicatorColor: AppColors.accent,
+                    indicatorSize: TabBarIndicatorSize.tab,
                     tabs: [
                       Tab(
                         icon: Icon(
                           Icons.music_note,
-                          size: 28,
+                          size: 32,
                         ),
                       ),
                       Tab(
                         icon: Icon(
                           Icons.library_music,
-                          size: 28,
+                          size: 32,
                         ),
                       ),
                       Tab(
                         icon: Icon(
                           Icons.cloud_queue_rounded,
-                          size: 28,
+                          size: 32,
                         ),
                       ),
                     ],
                   ),
-                  Expanded(
+                  const Expanded(
                     child: TabBarView(
                       children: [
                         Center(
