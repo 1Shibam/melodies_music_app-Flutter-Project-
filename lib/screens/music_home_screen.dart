@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melodies_music_app/config/app_theme.dart';
 import 'package:melodies_music_app/screens/login_screen.dart';
+import 'package:melodies_music_app/widgets/song_bottom_player.dart';
 
 class MusicHomeScreen extends ConsumerStatefulWidget {
   const MusicHomeScreen({super.key});
@@ -107,7 +108,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                       children: [
                         Center(
                             child: Text(
-                          'Local songs will Appear here',
+                          'Songs list will be here',
                           style: TextStyle(
                               fontFamily: Appfonts.arista,
                               color: AppColors.textPrimary,
@@ -125,6 +126,9 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                       ],
                     ),
                   ),
+                  const Align(
+                      alignment: Alignment.bottomCenter,
+                      child: SongBottomPlayer()),
                 ],
               ),
             ),
