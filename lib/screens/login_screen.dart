@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melodies_music_app/config/app_theme.dart';
@@ -13,7 +11,7 @@ class LoginScreen extends ConsumerWidget {
     final emailTextController = ref.watch(firstTextControllerProvider);
     final passTextController = ref.watch(secondTextControllerProvider);
     final emailFocusNode = ref.watch(firstFocusNodeProvider);
-    final passFocusNode = ref.watch(firstFocusNodeProvider);
+    final passFocusNode = ref.watch(secondFocusNodeProvider);
     return Stack(
       children: [
         Container(
@@ -32,62 +30,95 @@ class LoginScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(
+                style: const TextStyle(
+                    color: AppColors.textPrimary,
+                    fontFamily: Appfonts.arista,
+                    fontSize: 24),
                 controller: emailTextController,
                 focusNode: emailFocusNode,
                 onFieldSubmitted: (value) {
                   FocusScope.of(context).requestFocus(passFocusNode);
                 },
                 decoration: InputDecoration(
-                    labelText: 'email',
-                    labelStyle: TextStyle(
-                        color: AppColors.textSecondary.withOpacity(0.4),
-                        fontFamily: Appfonts.arista,
-                        fontSize: 32),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: const BorderSide(color: AppColors.accent))),
+                  labelText: 'email',
+                  labelStyle: TextStyle(
+                      color: AppColors.textSecondary.withOpacity(1),
+                      fontFamily: Appfonts.arista,
+                      fontSize: 24),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(color: AppColors.accent)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: AppColors.accent),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: AppColors.accent),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 32,
               ),
               TextFormField(
+                style: const TextStyle(
+                    color: AppColors.textPrimary,
+                    fontFamily: Appfonts.arista,
+                    fontSize: 24),
                 controller: passTextController,
                 focusNode: passFocusNode,
-                onFieldSubmitted: (value) {},
+                onFieldSubmitted: (value) {
+                  loginAuth();
+                },
                 decoration: InputDecoration(
-                    labelText: 'password',
-                    labelStyle: TextStyle(
-                        color: AppColors.textSecondary.withOpacity(0.4),
-                        fontFamily: Appfonts.arista,
-                        fontSize: 32),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: const BorderSide(color: AppColors.accent))),
+                  labelText: 'password',
+                  labelStyle: TextStyle(
+                      color: AppColors.textSecondary.withOpacity(1),
+                      fontFamily: Appfonts.arista,
+                      fontSize: 24),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(color: AppColors.accent)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: AppColors.accent),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: AppColors.accent),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 32,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  loginAuth();
+                },
                 style: const ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(Colors.transparent),
                     shadowColor: WidgetStatePropertyAll(Colors.transparent),
                     side: WidgetStatePropertyAll(BorderSide(
                       color: AppColors.accent,
                     ))),
-                child: const Text('Login'),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontFamily: Appfonts.arista,
+                      fontSize: 32),
+                ),
               )
             ],
           ),
         )),
-        BackdropFilter(
-          blendMode: BlendMode.softLight,
-          filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0), // Blur intensity
-          child: Container(
-            color: Colors.black.withOpacity(0.1), // Semi-transparent overlay
-          ),
+        Container(
+          color: Colors.black.withOpacity(0.6),
+          height: double.infinity,
+          width: double.infinity,
         ),
-
         // Centered lock icon and text
         const Center(
           child: Column(
@@ -102,17 +133,19 @@ class LoginScreen extends ConsumerWidget {
               Text(
                 'Coming Soon',
                 style: TextStyle(
-                  fontSize: 24,
-                  color: AppColors.textPrimary,
-                  fontWeight: FontWeight.bold,
-                ),
+                    fontSize: 32,
+                    color: AppColors.textPrimary,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: Appfonts.arista),
               ),
               SizedBox(height: 8),
               Text(
                 'This feature is not available yet.',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
                   color: AppColors.textPrimary,
+                  fontFamily: Appfonts.arista,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
@@ -121,4 +154,6 @@ class LoginScreen extends ConsumerWidget {
       ],
     );
   }
+
+  void loginAuth() {}
 }

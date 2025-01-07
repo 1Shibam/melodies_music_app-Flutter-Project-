@@ -14,52 +14,30 @@ class MusicHomeScreen extends ConsumerStatefulWidget {
 class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              colors: [AppColors.gradientStart, AppColors.gradientEnd],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter)),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 24.0),
-        child: DefaultTabController(
-          length: 3, // Number of tabs
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
+    return SafeArea(
+      child: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [AppColors.gradientStart, AppColors.gradientEnd],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
+        child: const Padding(
+          padding: EdgeInsets.only(top: 24.0),
+          child: DefaultTabController(
+            length: 3, // Number of tabs
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              body: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                        highlightColor: AppColors.accent.withOpacity(0.4),
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.search_rounded,
-                          color: AppColors.accent,
-                          size: 32,
-                        ),
-                      ),
-                      IconButton(
-                        highlightColor: AppColors.accent.withOpacity(0.4),
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite_border,
-                          color: AppColors.accent,
-                          size: 32,
-                        ),
-                      ),
-                    ],
+                  Text(''),
+                  
+                  SizedBox(
+                    height: 8,
                   ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  const TabBar(
+                  TabBar(
                     dividerColor: AppColors.textSecondary,
                     labelColor: AppColors.accent,
                     unselectedLabelColor: AppColors.textSecondary,
@@ -85,7 +63,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                       ),
                     ],
                   ),
-                  const Expanded(
+                  Expanded(
                     child: TabBarView(
                       children: [
                         Center(
