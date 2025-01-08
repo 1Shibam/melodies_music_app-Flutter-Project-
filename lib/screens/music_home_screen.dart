@@ -103,18 +103,57 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                       ),
                     ],
                   ),
-                  const Expanded(
+                  Expanded(
                     child: TabBarView(
                       children: [
                         Center(
-                            child: Text(
-                          'Songs list will be here',
-                          style: TextStyle(
-                              fontFamily: Appfonts.arista,
-                              color: AppColors.textPrimary,
-                              fontSize: 24),
+                            child: Scaffold(
+                          backgroundColor: Colors.transparent,
+                          body: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0, vertical: 20),
+                                child: SearchBar(
+                                  hintText: 'Search song',
+                                  hintStyle: const WidgetStatePropertyAll(
+                                      TextStyle(
+                                          color: AppColors.textSecondary,
+                                          fontFamily: Appfonts.arista,
+                                          fontSize: 20)),
+                                  trailing: [
+                                    IconButton(
+                                        highlightColor:
+                                            AppColors.accent.withOpacity(0.4),
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.filter_alt_outlined,
+                                          color: AppColors.primary,
+                                          size: 32,
+                                        )),
+                                    IconButton(
+                                        highlightColor:
+                                            AppColors.accent.withOpacity(0.4),
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.search_outlined,
+                                          color: AppColors.primary,
+                                          size: 32,
+                                        )),
+                                  ],
+                                  side: const WidgetStatePropertyAll(
+                                      BorderSide(color: AppColors.accent)),
+                                  shadowColor: const WidgetStatePropertyAll(
+                                      Colors.transparent),
+                                  backgroundColor: const WidgetStatePropertyAll(
+                                      Colors.transparent),
+                                ),
+                              )
+                            ],
+                          ),
                         )),
-                        Center(
+                        const Center(
                             child: Text(
                           'Your Playlists will Appear here',
                           style: TextStyle(
@@ -122,7 +161,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                               color: AppColors.textPrimary,
                               fontSize: 24),
                         )),
-                        Center(child: LoginScreen()),
+                        const Center(child: LoginScreen()),
                       ],
                     ),
                   ),

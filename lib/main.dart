@@ -12,6 +12,7 @@ class MelodiesMusicApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Melodies',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       home: const SplashScreen(),
