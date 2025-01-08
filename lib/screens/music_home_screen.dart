@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melodies_music_app/config/app_theme.dart';
 import 'package:melodies_music_app/screens/login_screen.dart';
+import 'package:melodies_music_app/widgets/list_of_songs.dart';
 import 'package:melodies_music_app/widgets/song_bottom_player.dart';
 
 class MusicHomeScreen extends ConsumerStatefulWidget {
@@ -74,7 +75,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 8,
                   ),
                   const TabBar(
                     dividerColor: AppColors.textSecondary,
@@ -106,53 +107,64 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        Center(
-                            child: Scaffold(
-                          backgroundColor: Colors.transparent,
-                          body: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16.0, vertical: 20),
-                                child: SearchBar(
-                                  hintText: 'Search song',
-                                  hintStyle: const WidgetStatePropertyAll(
-                                      TextStyle(
+                        Column(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16.0, vertical: 20),
+                                    child: SearchBar(
+                                      hintText: 'Search song',
+                                      hintStyle: const WidgetStatePropertyAll(
+                                        TextStyle(
                                           color: AppColors.textSecondary,
                                           fontFamily: Appfonts.arista,
-                                          fontSize: 20)),
-                                  trailing: [
-                                    IconButton(
-                                        highlightColor:
-                                            AppColors.accent.withOpacity(0.4),
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.filter_alt_outlined,
-                                          color: AppColors.primary,
-                                          size: 32,
-                                        )),
-                                    IconButton(
-                                        highlightColor:
-                                            AppColors.accent.withOpacity(0.4),
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.search_outlined,
-                                          color: AppColors.primary,
-                                          size: 32,
-                                        )),
-                                  ],
-                                  side: const WidgetStatePropertyAll(
-                                      BorderSide(color: AppColors.accent)),
-                                  shadowColor: const WidgetStatePropertyAll(
-                                      Colors.transparent),
-                                  backgroundColor: const WidgetStatePropertyAll(
-                                      Colors.transparent),
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                      trailing: [
+                                        IconButton(
+                                          highlightColor:
+                                              AppColors.accent.withOpacity(0.4),
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            Icons.filter_alt_outlined,
+                                            color: AppColors.primary,
+                                            size: 32,
+                                          ),
+                                        ),
+                                        IconButton(
+                                          highlightColor:
+                                              AppColors.accent.withOpacity(0.4),
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            Icons.search_outlined,
+                                            color: AppColors.primary,
+                                            size: 32,
+                                          ),
+                                        ),
+                                      ],
+                                      side: const WidgetStatePropertyAll(
+                                        BorderSide(color: AppColors.accent),
+                                      ),
+                                      shadowColor: const WidgetStatePropertyAll(
+                                          Colors.transparent),
+                                      backgroundColor:
+                                          const WidgetStatePropertyAll(
+                                              Colors.transparent),
+                                    ),
+                                  ),
+                                  const Expanded(
+                                    child: ListOfSongs(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                         const Center(
                             child: Text(
                           'Your Playlists will Appear here',
