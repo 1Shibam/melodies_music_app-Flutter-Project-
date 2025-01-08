@@ -32,26 +32,61 @@ class ListOfSongs extends ConsumerWidget {
             ),
           );
         } else if (snapshot.hasData) {
-          return ListView.builder(
-            itemCount: snapshot.data!.length,
-            itemBuilder: (context, index) {
-              final song = snapshot.data![index];
-              return ListTile(
-                title: Text(song.title),
-                subtitle: Text(song.artist ?? 'Unknown Artist'),
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              // Determine the available width
+              double availableWidth = constraints.maxWidth;
+
+              // Calculate text size based on available width
+              double titleFontSize = availableWidth * 0.05; // Adjust as needed
+              double subtitleFontSize =
+                  availableWidth * 0.04; // Adjust as needed
+
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  final song = snapshot.data![index];
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      tileColor: AppColors.accent.withOpacity(0.04),
+                      contentPadding:
+                          const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                      title: Text(
+                        song.title,
+                        style: TextStyle(
+                          fontSize: titleFontSize,
+                          fontFamily: Appfonts.arista,
+                          color: AppColors.textPrimary,
+                        ),
+                      ),
+                      subtitle: Text(
+                        song.artist ?? 'Unknown Artist',
+                        style: TextStyle(
+                          fontSize: subtitleFontSize,
+                          fontFamily: Appfonts.arista,
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
+                    ),
+                  );
+                },
               );
             },
           );
         } else {
           return const Center(
-              child: Text(
-            'No songs found.',
-            style: TextStyle(
-              color: AppColors.textSecondary,
-              fontFamily: Appfonts.arista,
-              fontSize: 20,
+            child: Text(
+              'No songs found.',
+              style: TextStyle(
+                color: AppColors.textSecondary,
+                fontFamily: Appfonts.arista,
+                fontSize: 20,
+              ),
             ),
-          ));
+          );
         }
       },
     );
