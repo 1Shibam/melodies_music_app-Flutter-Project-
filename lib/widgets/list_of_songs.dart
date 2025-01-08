@@ -38,9 +38,9 @@ class ListOfSongs extends ConsumerWidget {
               double availableWidth = constraints.maxWidth;
 
               // Calculate text size based on available width
-              double titleFontSize = availableWidth * 0.06; // Adjust as needed
+              double titleFontSize = availableWidth * 0.045; // Adjust as needed
               double subtitleFontSize =
-                  availableWidth * 0.04; // Adjust as needed
+                  availableWidth * 0.035; // Adjust as needed
 
               return ListView.builder(
                 itemCount: snapshot.data!.length,
@@ -49,11 +49,31 @@ class ListOfSongs extends ConsumerWidget {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
+                      leading: QueryArtworkWidget(
+                        id: snapshot.data![index].id,
+                        type: ArtworkType.AUDIO,
+                        nullArtworkWidget: Container(
+                          height: 50,
+                          width: 50,
+                          child: const Icon(
+                            Icons.music_note,
+                            color: AppColors.primary,
+                            size: 28,
+                          ),
+                        ),
+                      ),
+                      trailing: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.play_arrow,
+                            color: AppColors.primary,
+                            size: 28,
+                          )),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       tileColor: AppColors.accent.withOpacity(0.04),
-                      contentPadding:
-                          const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 2, horizontal: 8),
                       title: Text(
                         song.title,
                         style: TextStyle(
