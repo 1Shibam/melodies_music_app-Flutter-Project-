@@ -38,7 +38,7 @@ class ListOfSongs extends ConsumerWidget {
               double availableWidth = constraints.maxWidth;
 
               // Calculate text size based on available width
-              double titleFontSize = availableWidth * 0.05; // Adjust as needed
+              double titleFontSize = availableWidth * 0.06; // Adjust as needed
               double subtitleFontSize =
                   availableWidth * 0.04; // Adjust as needed
 

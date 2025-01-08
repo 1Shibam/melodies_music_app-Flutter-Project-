@@ -17,19 +17,24 @@ class _SongBottomPlayerState extends ConsumerState<SongBottomPlayer> {
       builder: (context, constraints) {
         // Determine the available width
         double availableWidth = constraints.maxWidth;
+        double availableHeight = constraints.maxHeight;
 
         // Calculate sizes based on available width
-        double iconSize = availableWidth * 0.07; // Adjust the multiplier as needed
-        double fontSize = availableWidth * 0.04; // Adjust the multiplier as needed
-        double imageSize = availableWidth * 0.1; // Adjust the multiplier as needed
+        double iconSize =
+            availableWidth * 0.09; // Adjust the multiplier as needed
+        double fontSize =
+            availableWidth * 0.04; // Adjust the multiplier as needed
+        double imageSize =
+            availableWidth * 0.1; // Adjust the multiplier as needed
 
         return BottomAppBar(
           height: 80,
           color: AppColors.gradientStart.withOpacity(.6),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: availableWidth * 0.05), // Adjust padding as needed
+            padding: EdgeInsets.symmetric(
+                horizontal: availableWidth * 0.002), // Adjust padding as needed
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Image.asset(
                   'assets/images/ic_launcher.png',
@@ -38,7 +43,9 @@ class _SongBottomPlayerState extends ConsumerState<SongBottomPlayer> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: availableWidth * 0.03), // Adjust padding as needed
+                    padding: EdgeInsets.symmetric(
+                        horizontal:
+                            availableWidth * 0.03), // Adjust padding as needed
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,6 +74,7 @@ class _SongBottomPlayerState extends ConsumerState<SongBottomPlayer> {
                   ),
                 ),
                 IconButton(
+                  highlightColor: AppColors.accent.withOpacity(0.4),
                   onPressed: () {},
                   icon: Icon(
                     Icons.skip_previous,
@@ -75,6 +83,7 @@ class _SongBottomPlayerState extends ConsumerState<SongBottomPlayer> {
                   ),
                 ),
                 IconButton(
+                  highlightColor: AppColors.accent.withOpacity(0.4),
                   onPressed: () {},
                   icon: Icon(
                     Icons.play_arrow,
@@ -83,6 +92,7 @@ class _SongBottomPlayerState extends ConsumerState<SongBottomPlayer> {
                   ),
                 ),
                 IconButton(
+                  highlightColor: AppColors.accent.withOpacity(0.4),
                   onPressed: () {},
                   icon: Icon(
                     Icons.skip_next,

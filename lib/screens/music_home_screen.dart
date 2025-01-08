@@ -48,8 +48,8 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                           children: [
                             Image.asset(
                               'assets/images/ic_launcher.png',
-                              height: isSmallScreen ? 36 : 48,
-                              width: isSmallScreen ? 36 : 48,
+                              height: isSmallScreen ? 44 : 56,
+                              width: isSmallScreen ? 44 : 56,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -61,7 +61,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                                   icon: Icon(
                                     Icons.multitrack_audio,
                                     color: AppColors.primary,
-                                    size: isSmallScreen ? 28 : 36,
+                                    size: isSmallScreen ? 32 : 40,
                                   ),
                                 ),
                                 const SizedBox(width: 10),
@@ -72,7 +72,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                                   icon: Icon(
                                     Icons.settings,
                                     color: AppColors.primary,
-                                    size: isSmallScreen ? 28 : 36,
+                                    size: isSmallScreen ? 32 : 40,
                                   ),
                                 ),
                               ],
@@ -100,7 +100,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 16.0, vertical: 20),
+                                      horizontal: 12.0, vertical: 20),
                                   child: SearchBar(
                                     hintText: 'Search song',
                                     hintStyle: const WidgetStatePropertyAll(
