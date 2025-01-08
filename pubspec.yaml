@@ -43,6 +43,7 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   flutter_svg: ^2.0.16
   path_provider_android: ^2.2.15
+  
 
 dev_dependencies:
   flutter_test:

@@ -41,17 +41,18 @@ class WelcomePageWidget extends ConsumerWidget {
           Text(
             title,
             style: const TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: AppColors.textPrimary,
-                fontFamily: Appfonts.aristaBold),
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: AppColors.textPrimary,
+              fontFamily: Appfonts.arista,
+            ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
           Text(
             description,
             style: const TextStyle(
-                fontSize: 24,
+                fontSize: 28,
                 color: AppColors.textSecondary,
                 fontFamily: Appfonts.arista),
             textAlign: TextAlign.center,

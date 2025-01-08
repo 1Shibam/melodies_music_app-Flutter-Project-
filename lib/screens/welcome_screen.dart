@@ -39,7 +39,7 @@ class WelcomeScreen extends StatelessWidget {
                       onPageChanged: (value) {},
                       children: const [
                         WelcomePageWidget(
-                          title: "Welcome to vibeTunes",
+                          title: "Welcome to Melodies",
                           imgPath: 'assets/images/music-notes-svgrepo-com.png',
                           description: "Your ultimate music experience awaits!",
                           image: Icons.music_note,
