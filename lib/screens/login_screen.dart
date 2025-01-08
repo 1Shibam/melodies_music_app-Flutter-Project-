@@ -15,7 +15,6 @@ class LoginScreen extends ConsumerWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Adjust font sizes and paddings based on screen width
         double fontSize = constraints.maxWidth < 600 ? 18 : 24;
         double buttonFontSize = constraints.maxWidth < 600 ? 24 : 32;
         double fieldHeight = constraints.maxWidth < 600 ? 50 : 60;
@@ -61,15 +60,18 @@ class LoginScreen extends ConsumerWidget {
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: AppColors.accent),
+                            borderSide:
+                                const BorderSide(color: AppColors.accent),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: AppColors.accent),
+                            borderSide:
+                                const BorderSide(color: AppColors.accent),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: AppColors.accent),
+                            borderSide:
+                                const BorderSide(color: AppColors.accent),
                           ),
                         ),
                       ),
@@ -97,15 +99,18 @@ class LoginScreen extends ConsumerWidget {
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: AppColors.accent),
+                            borderSide:
+                                const BorderSide(color: AppColors.accent),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: AppColors.accent),
+                            borderSide:
+                                const BorderSide(color: AppColors.accent),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: AppColors.accent),
+                            borderSide:
+                                const BorderSide(color: AppColors.accent),
                           ),
                         ),
                       ),
@@ -114,7 +119,8 @@ class LoginScreen extends ConsumerWidget {
                     ElevatedButton(
                       onPressed: loginAuth,
                       style: const ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(Colors.transparent),
+                        backgroundColor:
+                            WidgetStatePropertyAll(Colors.transparent),
                         shadowColor: WidgetStatePropertyAll(Colors.transparent),
                         side: WidgetStatePropertyAll(
                           BorderSide(color: AppColors.accent),

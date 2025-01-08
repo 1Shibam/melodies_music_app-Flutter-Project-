@@ -15,24 +15,17 @@ class _SongBottomPlayerState extends ConsumerState<SongBottomPlayer> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Determine the available width
         double availableWidth = constraints.maxWidth;
-        double availableHeight = constraints.maxHeight;
 
-        // Calculate sizes based on available width
-        double iconSize =
-            availableWidth * 0.09; // Adjust the multiplier as needed
-        double fontSize =
-            availableWidth * 0.04; // Adjust the multiplier as needed
-        double imageSize =
-            availableWidth * 0.1; // Adjust the multiplier as needed
+        double iconSize = availableWidth * 0.09;
+        double fontSize = availableWidth * 0.04;
+        double imageSize = availableWidth * 0.1;
 
         return BottomAppBar(
           height: 80,
           color: AppColors.gradientStart.withOpacity(.6),
           child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: availableWidth * 0.002), // Adjust padding as needed
+            padding: EdgeInsets.symmetric(horizontal: availableWidth * 0.002),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -43,9 +36,8 @@ class _SongBottomPlayerState extends ConsumerState<SongBottomPlayer> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal:
-                            availableWidth * 0.03), // Adjust padding as needed
+                    padding:
+                        EdgeInsets.symmetric(horizontal: availableWidth * 0.03),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -11,11 +11,11 @@ class WelcomeScreen extends StatelessWidget {
     PageController viewController = PageController();
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Determine the available width and height
+        
         double availableWidth = constraints.maxWidth;
         double availableHeight = constraints.maxHeight;
 
-        // Adjust padding based on available height
+        
         double bottomPadding = availableHeight * 0.1;
 
         return Scaffold(

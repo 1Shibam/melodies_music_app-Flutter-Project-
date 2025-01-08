@@ -34,7 +34,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
             child: Padding(
               padding: EdgeInsets.only(top: isSmallScreen ? 16.0 : 24.0),
               child: DefaultTabController(
-                length: 3, // Number of tabs
+                length: 3, 
                 child: Scaffold(
                   backgroundColor: Colors.transparent,
                   body: Column(

@@ -24,13 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _navigateAfterDelay() async {
-    // Wait for 3 seconds
     await Future.delayed(const Duration(seconds: 3));
 
-    // Check if the user has seen the welcome screen
     bool isWelcomed = await services.getOnBoardingStatus();
 
-    // Navigate to the appropriate screen
     if (isWelcomed) {
       Navigator.pushReplacement(
         context,
@@ -51,13 +48,12 @@ class _SplashScreenState extends State<SplashScreen> {
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [AppColors.gradientStart, AppColors.gradientEnd],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter)
-        ),
+            gradient: LinearGradient(
+                colors: [AppColors.gradientStart, AppColors.gradientEnd],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
         child: Center(
-          child: Image.asset(
-              'assets/images/ic_launcher.png'),
+          child: Image.asset('assets/images/ic_launcher.png'),
         ),
       ),
     );

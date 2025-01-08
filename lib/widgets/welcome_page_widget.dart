@@ -29,18 +29,14 @@ class WelcomePageWidget extends ConsumerWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Determine the available width and height
         double availableWidth = constraints.maxWidth;
         double availableHeight = constraints.maxHeight;
 
-        // Adjust image size based on available width
         double imageSize = availableWidth * 0.5;
 
-        // Adjust font sizes based on available width
         double titleFontSize = availableWidth * 0.1;
         double descriptionFontSize = availableWidth * 0.07;
 
-        // Adjust button size based on available width
         double buttonWidth = availableWidth * 0.6;
         double buttonHeight = availableHeight * 0.08;
 
