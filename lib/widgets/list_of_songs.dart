@@ -52,10 +52,10 @@ class ListOfSongs extends ConsumerWidget {
                       leading: QueryArtworkWidget(
                         id: snapshot.data![index].id,
                         type: ArtworkType.AUDIO,
-                        nullArtworkWidget: Container(
+                        nullArtworkWidget: const SizedBox(
                           height: 50,
                           width: 50,
-                          child: const Icon(
+                          child: Icon(
                             Icons.music_note,
                             color: AppColors.primary,
                             size: 28,
@@ -64,7 +64,7 @@ class ListOfSongs extends ConsumerWidget {
                       ),
                       trailing: IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.play_arrow,
                             color: AppColors.primary,
                             size: 28,
