@@ -10,7 +10,7 @@ class ListOfSongs extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final audioPlayer = ref.watch(audioPlayerProvider);
+    
     final songList = ref
         .watch(permissionNotifierProvider.notifier)
         .fetchSongsWithPermissionCheck();
@@ -52,7 +52,7 @@ class ListOfSongs extends ConsumerWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
                       onTap: () {
-                        playSong(ref, snapshot.data![index].uri.toString());
+                        playSong(ref, snapshot.data![index].uri.toString(), index);
                       },
                       child: ListTile(
                         leading: QueryArtworkWidget(

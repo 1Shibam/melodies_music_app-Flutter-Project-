@@ -10,7 +10,9 @@ final audioPlayerProvider = AutoDisposeProvider<AudioPlayer>(
     return player;
   },
 );
-void playSong(WidgetRef ref, String uri) {
+late int playIndex;
+void playSong(WidgetRef ref, String uri, index) {
+  playIndex = index;
   final audioPlayer = ref.read(audioPlayerProvider);
   audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(uri)));
   audioPlayer.play();

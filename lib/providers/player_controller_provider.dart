@@ -7,19 +7,17 @@ final audioQueryProvider = Provider<OnAudioQuery>((ref) {
   return OnAudioQuery();
 });
 
-
 final permissionNotifierProvider =
     AsyncNotifierProvider<PermissionNotifier, bool>(() {
   return PermissionNotifier();
 });
 
 class PermissionNotifier extends AsyncNotifier<bool> {
+  
   @override
   Future<bool> build() async {
     return await checkPermission();
   }
-
-  
 
   Future<bool> checkPermission() async {
     final audioQuery = ref.read(audioQueryProvider);
