@@ -1,10 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 final audioQueryProvider = Provider<OnAudioQuery>((ref) {
   return OnAudioQuery();
 });
+
 
 final permissionNotifierProvider =
     AsyncNotifierProvider<PermissionNotifier, bool>(() {
@@ -16,6 +18,8 @@ class PermissionNotifier extends AsyncNotifier<bool> {
   Future<bool> build() async {
     return await checkPermission();
   }
+
+  
 
   Future<bool> checkPermission() async {
     final audioQuery = ref.read(audioQueryProvider);

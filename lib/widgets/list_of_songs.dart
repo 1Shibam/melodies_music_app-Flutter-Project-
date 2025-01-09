@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melodies_music_app/config/app_theme.dart';
+import 'package:melodies_music_app/providers/audio_player_provider.dart';
 import 'package:melodies_music_app/providers/player_controller_provider.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 
@@ -9,6 +10,7 @@ class ListOfSongs extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final audioPlayer = ref.watch(audioPlayerProvider);
     final songList = ref
         .watch(permissionNotifierProvider.notifier)
         .fetchSongsWithPermissionCheck();
@@ -48,46 +50,51 @@ class ListOfSongs extends ConsumerWidget {
                   final song = snapshot.data![index];
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ListTile(
-                      leading: QueryArtworkWidget(
-                        id: snapshot.data![index].id,
-                        type: ArtworkType.AUDIO,
-                        nullArtworkWidget: const SizedBox(
-                          height: 50,
-                          width: 50,
-                          child: Icon(
-                            Icons.music_note,
-                            color: AppColors.primary,
-                            size: 28,
+                    child: GestureDetector(
+                      onTap: () {
+                        playSong(ref, snapshot.data![index].uri.toString());
+                      },
+                      child: ListTile(
+                        leading: QueryArtworkWidget(
+                          id: snapshot.data![index].id,
+                          type: ArtworkType.AUDIO,
+                          nullArtworkWidget: const SizedBox(
+                            height: 50,
+                            width: 50,
+                            child: Icon(
+                              Icons.music_note,
+                              color: AppColors.primary,
+                              size: 28,
+                            ),
                           ),
                         ),
-                      ),
-                      trailing: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.play_arrow,
-                            color: AppColors.primary,
-                            size: 28,
-                          )),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      tileColor: AppColors.accent.withOpacity(0.04),
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 2, horizontal: 8),
-                      title: Text(
-                        song.title,
-                        style: TextStyle(
-                          fontSize: titleFontSize,
-                          fontFamily: Appfonts.arista,
-                          color: AppColors.textPrimary,
+                        trailing: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.play_arrow,
+                              color: AppColors.primary,
+                              size: 28,
+                            )),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        tileColor: AppColors.accent.withOpacity(0.04),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 2, horizontal: 8),
+                        title: Text(
+                          song.title,
+                          style: TextStyle(
+                            fontSize: titleFontSize,
+                            fontFamily: Appfonts.arista,
+                            color: AppColors.textPrimary,
+                          ),
                         ),
-                      ),
-                      subtitle: Text(
-                        song.artist ?? 'Unknown Artist',
-                        style: TextStyle(
-                          fontSize: subtitleFontSize,
-                          fontFamily: Appfonts.arista,
-                          color: AppColors.textSecondary,
+                        subtitle: Text(
+                          song.artist ?? 'Unknown Artist',
+                          style: TextStyle(
+                            fontSize: subtitleFontSize,
+                            fontFamily: Appfonts.arista,
+                            color: AppColors.textSecondary,
+                          ),
                         ),
                       ),
                     ),

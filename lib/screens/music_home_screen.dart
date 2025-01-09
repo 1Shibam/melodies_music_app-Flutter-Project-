@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melodies_music_app/config/app_theme.dart';
+import 'package:melodies_music_app/providers/audio_player_provider.dart';
 import 'package:melodies_music_app/screens/login_screen.dart';
 import 'package:melodies_music_app/widgets/list_of_songs.dart';
 import 'package:melodies_music_app/widgets/song_bottom_player.dart';
@@ -14,8 +15,10 @@ class MusicHomeScreen extends ConsumerStatefulWidget {
 }
 
 class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
+  
   @override
   Widget build(BuildContext context) {
+    final audioPlayer = ref.watch(audioPlayerProvider);
     return SafeArea(
       child: LayoutBuilder(
         builder: (context, constraints) {
