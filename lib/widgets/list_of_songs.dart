@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melodies_music_app/config/app_theme.dart';
@@ -10,10 +12,8 @@ class ListOfSongs extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    
-    final songList = ref
-        .watch(permissionNotifierProvider.notifier)
-        .fetchSongsWithPermissionCheck();
+    // Fetch the list of songs with permission check
+    final songList = ref.watch(permissionNotifierProvider.notifier).fetchSongsWithPermissionCheck();
 
     return FutureBuilder<List<SongModel>>(
       future: songList,
@@ -36,22 +36,21 @@ class ListOfSongs extends ConsumerWidget {
         } else if (snapshot.hasData) {
           return LayoutBuilder(
             builder: (context, constraints) {
-              // Determine the available width
               double availableWidth = constraints.maxWidth;
 
-              // Calculate text size based on available width
-              double titleFontSize = availableWidth * 0.045; // Adjust as needed
-              double subtitleFontSize =
-                  availableWidth * 0.035; // Adjust as needed
+              double titleFontSize = availableWidth * 0.045;
+              double subtitleFontSize = availableWidth * 0.035;
 
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
                   final song = snapshot.data![index];
+
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
                       onTap: () {
+                        // Play the selected song
                         playSong(ref, snapshot.data![index].uri.toString(), index);
                       },
                       child: ListTile(
@@ -68,15 +67,33 @@ class ListOfSongs extends ConsumerWidget {
                             ),
                           ),
                         ),
-                        trailing: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.play_arrow,
-                              color: AppColors.primary,
-                              size: 28,
-                            )),
+                        trailing: Consumer(
+                          builder: (context, watch, child) {
+                            final playbackState = watch;
+
+                            return IconButton(
+                              onPressed: () {
+                                if (playbackState == PlaybackState.playing) {
+                                  // Pause if the song is currently playing
+                                  togglePlayPause(ref);
+                                } else {
+                                  // Play if the song is paused
+                                  playSong(ref, snapshot.data![index].uri.toString(), index);
+                                }
+                              },
+                              icon: Icon(
+                                playbackState == PlaybackState.playing
+                                    ? Icons.pause
+                                    : Icons.play_arrow,
+                                color: AppColors.primary,
+                                size: 28,
+                              ),
+                            );
+                          },
+                        ),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         tileColor: AppColors.accent.withOpacity(0.04),
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 2, horizontal: 8),

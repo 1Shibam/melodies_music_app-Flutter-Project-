@@ -15,7 +15,6 @@ class MusicHomeScreen extends ConsumerStatefulWidget {
 }
 
 class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
-  
   @override
   Widget build(BuildContext context) {
     final audioPlayer = ref.watch(audioPlayerProvider);
@@ -37,7 +36,7 @@ class _MusicHomeScreenState extends ConsumerState<MusicHomeScreen> {
             child: Padding(
               padding: EdgeInsets.only(top: isSmallScreen ? 16.0 : 24.0),
               child: DefaultTabController(
-                length: 3, 
+                length: 3,
                 child: Scaffold(
                   backgroundColor: Colors.transparent,
                   body: Column(
