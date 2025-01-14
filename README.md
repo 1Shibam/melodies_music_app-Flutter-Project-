@@ -34,14 +34,13 @@ Follow these steps to set up and run the project locally:
    ```bash
    flutter run
 
-# Dependencies
-1. **on_audio_query_forked**: For querying audio files from device storage
-<br>
-2. **just_audio**: For audio playback capabilities.<br>
+## Dependencies
+
+1. **on_audio_query_forked**: For querying audio files from device storage.
+2. **just_audio**: For audio playback capabilities.
 3. **provider**: State management solution.
- <br>
 4. **permission_handler**: To handle runtime permissions for accessing storage.
-    <br>
-**Refer to the pubspec.yaml file for the complete list of dependencies.**
+
+Refer to the `pubspec.yaml` file for the complete list of dependencies.
 
 
