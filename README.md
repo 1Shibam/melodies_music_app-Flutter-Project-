@@ -32,10 +32,14 @@ Follow these steps to set up and run the project locally:
    flutter run
 
 # Dependencies
-on_audio_query: For querying audio files from device storage.
-just_audio: For audio playback capabilities.
-provider: State management solution.
-permission_handler: To handle runtime permissions for accessing storage.
-Refer to the pubspec.yaml file for the complete list of dependencies.
+1. **on_audio_query_forked**: For querying audio files from device storage.(dont use the on_audio_query its not working properly use the one with name 'forked' at the end )
+<br>
+2. **just_audio**: For audio playback capabilities.
+3. <br>
+4. **provider**: State management solution.
+5. <br>
+6. **permission_handler**: To handle runtime permissions for accessing storage.
+7. <br>
+**Refer to the pubspec.yaml file for the complete list of dependencies.**
 
 
