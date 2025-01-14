@@ -12,7 +12,7 @@ Melodies is a Flutter-based music application that scans your device's storage t
 
 ## Screenshots
 
-*(Include screenshots of the app's main screens to provide a visual overview.)*
+https://github.com/user-attachments/assets/ebfab596-8bb0-4b6d-8004-648ea6bfd3e2
 
 ## Getting Started
 
